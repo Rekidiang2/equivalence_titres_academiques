@@ -7,7 +7,11 @@ export default {
       'node_modules/preline/dist/*.js',
     ],
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+            'my-custom-blue': '#17418A',
+          },
+      },
     },
     plugins: [
       require('preline/plugin'),
