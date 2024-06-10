@@ -10,7 +10,7 @@
             <div class="flex-1 mb-6 text-black">
                 <a class="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
                     <!--Icon from: http://www.potlabicons.com/ -->
-                    <img width="220" src="{{ asset('images/logo-esu.png') }}" alt="" srcset="">
+                    <img width="220" src="{{ asset('images/equiv_logo.png') }}" alt="" srcset="">
                 </a>
             </div>
             <div class="flex-1">

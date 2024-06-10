@@ -1,7 +1,11 @@
 <div class="pt-10   bg-white">
-    <h1 class="my-1 mx-26 text-2xl text-center font-bold leading-tight text-blue-600 bg-blue-300">
-        Conditions et Procedures
-    </h1>
+
+    <div class="flex justify-center">
+        <p
+            class="  text-center  text-black text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            Conditions et Procedures
+        </p>
+    </div>
     <div class="container px-1 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 
         <!--Left Col-->
@@ -321,10 +325,10 @@
         </div>
     </div>
     <div class="flex justify-center">
-        <button
-            class="hover:underline text-center bg-blue-600 text-white text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        <a href="/register"
+            class=" hover:underline text-center bg-blue-600 text-white text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Accéder
-        </button>
+        </a>
     </div>
 
 

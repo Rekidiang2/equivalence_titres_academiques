@@ -10,10 +10,10 @@
                 La porte d'acces aux equivalences des
                 titres academiques obtenus hors de la Republique Democratique du Congo
             </p>
-            <button
-                class="mx-auto lg:mx-0 hover:underline bg-blue-600 text-white text-3xl font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+            <a class="mx-auto lg:mx-0 hover:underline bg-blue-600 text-white text-3xl font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+                href="/register">
                 Accéder
-            </button>
+            </a>
         </div>
         <!--Right Col-->
         <div class="w-full md:w-3/5 py-3 text-center">
