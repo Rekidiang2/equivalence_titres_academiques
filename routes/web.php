@@ -7,6 +7,7 @@ use App\Livewire\Auth\ResetPassword;
 use App\Livewire\Apropos;
 use App\Livewire\DemandeForm;
 use App\Livewire\HomePage;
+use App\Livewire\Payement;
 use App\Livewire\Procedure;
 use App\Livewire\Suivi;
 use App\Livewire\UserEspace;
@@ -26,3 +27,5 @@ Route::get('reset', ResetPassword::class);
 Route::get('user-espace', UserEspace::class);
 Route::get('user-espace/{suivi}', Suivi::class);
 Route::get('demande-form', DemandeForm::class);
+
+Route::get('payement', Payement::class);

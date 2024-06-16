@@ -5,7 +5,8 @@
 
         <div class="relative md:flex md:items-center md:justify-between">
             <div class="flex items-center justify-between">
-                <a class="flex-none text-white text-md font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                <a wire:navigate
+                    class="flex-none text-white text-md font-semibold dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     href="/" aria-label="Brand">Commission d'Equivalence des Diplômes </a>
                 <div class="md:hidden">
                     <button type="button"
@@ -37,19 +38,23 @@
                     <div
                         class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
 
-                        <a class="font-medium text-white py-3 md:py-6 dark:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a wire:navigate
+                            class="font-medium {{ request()->is('/') ? 'text-red-600 underline' : 'text-white' }} py-3 md:py-6 dark:text-blue-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/" aria-current="page">Acceuil</a>
 
-                        <a class="font-medium text-white hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a wire:navigate
+                            class="font-medium {{ request()->is('apropos') ? 'text-red-600 underline' : 'text-white' }} hover:text-yellow-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/apropos">
                             Apropos
                         </a>
 
-                        <a class="font-medium text-white hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a wire:navigate
+                            class="font-medium {{ request()->is('procedure') ? 'text-red-600 underline' : 'text-white' }} hover:text-yellow-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/procedure">
                             Procédure
                         </a>
-                        <a class="font-medium text-white hover:text-gray-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a wire:navigate
+                            class="font-medium {{ request()->is('verifier') ? 'text-red-600 underline' : 'text-white' }} hover:text-yellow-400 py-3 md:py-6 dark:text-gray-400 dark:hover:text-gray-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/verifier">
                             Verification
                         </a>
@@ -66,7 +71,8 @@
                         </a>
                     -->
                         <div class="pt-3 md:pt-0">
-                            <a class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-white text-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            <a wire:navigate
+                                class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-white text-blue-600 hover:text-white hover:bg-red-600 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                                 href="/login">
                                 <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
