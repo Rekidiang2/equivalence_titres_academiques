@@ -24,11 +24,13 @@
 
     <div class="mt-3">
         <div id="bar-with-underline-1" role="tabpanel" aria-labelledby="bar-with-underline-item-1">
-            <p class="text-gray-500 dark:text-neutral-400 text-center">
-                This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">first</em> item's tab body.
-            </p>
+
+
+
+
+
             <caption
-                class="p-5 mb-5 text-xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                class="p-5 mb-5 text-2xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                 Mes Demandes
             </caption>
 
@@ -55,69 +57,170 @@
                                 Option
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                etablissement
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Pays d'Etudes
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                Paye ?
-                            </th>
 
-                            <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Edit</span>
-                            </th>
 
                             <th scope="col" class="px-6 py-3">
                                 <span class="sr-only">Edit</span>
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                01
-                            </th>
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Kiese Diangebeni Reagan
-                            </th>
 
-                            <td class="px-6 py-4">
-                                Masculin
-                            </td>
-                            <td class="px-6 py-4">
-                                Master
-                            </td>
-                            <td class="px-6 py-4">
-                                Math-Informatique
-                            </td>
-                            <td class="px-6 py-4">
-                                France
-                            </td>
-                            <td
-                                class="px-6 py-4 whitespace-nowrap rounded-full text-sm text-gray-800 dark:text-gray-200">
-                                <span class="bg-red-500 py-1 px-3 rounded text-white shadow">Non</span>
-                            </td>
-
-                            <td class="px-6 py-4 text-right">
-                                <a href="/user-espace/2"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Voir</a>
-                            </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="/payement"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Paiement</a>
-                            </td>
-                        </tr>
+                    {{ $confirmes = 0 }}
+                    @if (!is_null($demandes) && count($demandes) > 0)
+                        {{ $nonpayes = 0 }}
+                        {{ $nonconfirmes = 0 }}
 
 
-                    </tbody>
+
+                        @foreach ($demandes as $demande)
+                            @if (!isset($demande->id))
+                                {{ $nonpayes += 1 }}
+                            @elseif($demande->deja_paye == 0)
+                                {{ $nonconfirmes += 1 }}
+                            @else
+                                {{ $confirmes += 1 }}
+                            @endif
+
+
+                            <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $demande->demande_id }}
+                                    </th>
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $demande->fullName }}
+                                    </th>
+
+                                    <td class="px-6 py-4">
+                                        {{ $demande->genre }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $demande->grade }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $demande->option }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $demande->nom_fr }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $demande->pays }}
+                                    </td>
+
+                                    <td
+                                        class="px-6 py-4 whitespace-nowrap rounded-full text-sm text-gray-800 dark:text-gray-200">
+                                        @if (!isset($demande->id))
+                                            <span class="bg-red-500 py-1 px-3 rounded text-white shadow">
+                                                Non Paye
+                                            </span>
+                                        @elseif($demande->deja_paye == 1)
+                                            <span class="bg-blue-500 py-1 px-3 rounded text-white shadow">
+                                                Confirme
+                                            </span>
+                                        @else
+                                            <span class="bg-yellow-500 py-1 px-3 rounded text-white shadow">
+                                                Non Confirme
+                                            </span>
+                                        @endif
+
+
+                                    </td>
+
+                                    <td class="px-1 py-1 text-right ml-4 bg-green-600 rounded-xl border-2">
+                                        <a href="/user-espace/2"
+                                            class="font-medium bg-green-400 rounded-xl border-4 border-gray text-white text-xl py-1 px-1 dark:text-blue-500 hover:underline">Voir</a>
+                                    </td>
+                                    @if (!isset($demande->id))
+                                        <td class="px-1 py-2 text-right ml-4 bg-blue-600 rounded-xl ">
+                                            <a href="/payement"
+                                                class="font-medium  bg-blue-400 rounded-xl border-4 border-gray text-white text-xl py-1 px-1 dark:text-blue-500 hover:underline ">Paiement</a>
+                                        </td>
+                                    @endif
+                                </tr>
+
+
+                            </tbody>
+                        @endforeach
+
+                        <p class="text-gray-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
+                                class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                {{ count($demandes) }}</em> soumise.
+                        </p>
+
+                        @if ($nonpayes > 0)
+                            <p class="text-red-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                    {{ $nonpayes }}</em> Demandes non payes, Veuillez
+                                enregistrer votre
+                                payement en cliquant sur <em
+                                    class="font-semibold underline text-blue-600">Payement</em>.
+                            </p>
+                        @endif
+
+
+                        @if ($nonconfirmes > 0)
+                            <p class="text-red-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                    {{ $nonconfirmes }}</em> Demandes dont la confirmation de payement sont en
+                                Cours
+                                <em class="font-semibold underline text-black-600">Merci Pour votre patience</em>.
+                            </p>
+                        @endif
+
+                        @if ($confirmes > 0)
+                            <p class="text-blue-800 bg-white dark:text-neutral-400 text-center mb-2"> Veuillez cliquer
+                                sur
+                                l'onglet Dossiers pour suivre l'evolution de vos <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                    {{ $confirmes }}</em> dossiers.
+
+                            </p>
+                        @endif
+
+
+
+
+
+                        @if (!isset($demande->id))
+                            <p class="dark:text-neutral-400 text-center mb-2 text-red-600">Veuillez
+                                enregistrer votre
+                                payement en cliquant sur <em class="font-semibold underline text-blue-600">Payement</em>
+                            </p>
+
+                            <div>
+                        @endif
+                    @else
+                        <p class="text-gray-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
+                                class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                aucune demande</em> soumise.
+                        </p>
+
+                    @endif
                 </table>
+
             </div>
+
+            <!-- pagination start -->
+            <div class="flex justify-end mt-6">
+                {{-- $demandes->links() --}}
+            </div>
+            <!-- pagination end -->
 
         </div>
         <div id="bar-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="bar-with-underline-item-2">
-            <p class="text-gray-500 dark:text-neutral-400 text-center">
-                This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">second</em> item's tab body.
-            </p>
+
 
             <caption
                 class="p-5 mb-5 text-xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
@@ -127,70 +230,115 @@
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    @if (!is_null($dossiers) && count($dossiers) > 0)
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Numero Dossier
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Nom Complet
+                                </th>
 
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Numero Dossier
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Nom Complet
-                            </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                Genre
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Grade
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Option
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Pays d'Etudes
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Statut
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Edit</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                082023-0089
-                            </th>
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Kiese Diangebeni Reagan
-                            </th>
-
-                            <td class="px-6 py-4">
-                                Masculin
-                            </td>
-                            <td class="px-6 py-4">
-                                Master
-                            </td>
-                            <td class="px-6 py-4">
-                                Math-Informatique
-                            </td>
-                            <td class="px-6 py-4">
-                                France
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"><span
-                                    class="bg-green-500 py-1 px-3 rounded text-white shadow">En cours de
-                                    traitement</span></td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="/user-espace/2"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Suivi</a>
-                            </td>
-                        </tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Genre
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Grade
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Option
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Pays d'Etudes
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Statut
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    <span class="sr-only">Edit</span>
+                                </th>
+                            </tr>
+                        </thead>
 
 
-                    </tbody>
+
+                        @foreach ($dossiers as $dossier)
+                            <tbody>
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $dossier->num_dossier }}
+                                    </th>
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        {{ $dossier->nom }} {{ $dossier->postnom }} {{ $dossier->prenom }}
+                                    </th>
+
+                                    <td class="px-6 py-4">
+                                        {{ $dossier->genre }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $dossier->grade }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $dossier->option }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $dossier->pays }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                        <span
+                                            class="bg-green-200 py-1 px-3 rounded text-black shadow">{{ $dossier->statut }}</span>
+                                    </td>
+                                    <td class="px-5 py-3  text-right ">
+                                        <a href="/user-espace/{{ $dossier->id }}"
+                                            class="font-medium text-xl bg-blue-500 rounded-2xl px-5 py-2  text-white dark:text-blue-500 hover:underline">Suivi</a>
+                                    </td>
+                                </tr>
+
+
+                            </tbody>
+                        @endforeach
+                        <p class="text-gray-500 dark:text-neutral-400 text-center">
+                            Vous avez <em
+                                class="font-semibold text-gray-800 dark:text-neutral-200">{{ count($dossiers) }}</em>
+                            dossiers.
+                        </p>
+                        @if ($confirmes > 0)
+                            <p class="text-gray-500 dark:text-neutral-400 text-center">
+                                Vous avez <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes - count($dossiers) }}</em>
+                                dossiers en cours d'enregistrent.
+                            </p>
+                        @endif
+                    @else
+                        @if (count($dossiers) == 0 && $confirmes < 0)
+                            <p class="text-gray-500 dark:text-neutral-400 text-center">
+                                Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">aucun</em>
+                                dossiers enregistre.
+                            </p>
+                        @else
+                            <p class="text-gray-500 dark:text-neutral-400 text-center">
+                                Vous avez <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes }}</em>
+                                dossiers en cours d'enregistrent.
+                            </p>
+                        @endif
+
+
+                    @endif
+
+                    @if ($confirmes <= 0)
+                        <p class="text-gray-500 dark:text-neutral-400 text-center">
+                            Vous avez <em
+                                class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes - count($dossiers) }}</em>
+                            dossiers en cours d'enregistrent.
+                        </p>
+                    @endif
+
+
+
                 </table>
             </div>
         </div>

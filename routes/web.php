@@ -25,7 +25,7 @@ Route::get('/forgot', ForgotPassword::class);
 Route::get('reset', ResetPassword::class);
 
 Route::get('user-espace', UserEspace::class);
-Route::get('user-espace/{suivi}', Suivi::class);
+Route::get('user-espace/{id}', Suivi::class);
 Route::get('demande-form', DemandeForm::class);
 
 Route::get('payement', Payement::class);
