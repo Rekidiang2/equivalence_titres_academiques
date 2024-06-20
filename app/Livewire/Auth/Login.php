@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Auth;
 
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Login - CED')]
 class Login extends Component
 {
     public function render()

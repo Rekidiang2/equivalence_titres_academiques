@@ -69,15 +69,19 @@
                             </th>
                         </tr>
                     </thead>
-
-                    {{ $confirmes = 0 }}
+                    <?php
+                    $confirmes = 0;
+                    $nonpayes = 0;
+                    $nonconfirmes = 0;
+                    ?>
                     @if (!is_null($demandes) && count($demandes) > 0)
-                        {{ $nonpayes = 0 }}
-                        {{ $nonconfirmes = 0 }}
+
 
 
 
                         @foreach ($demandes as $demande)
+                            {{ $nonpayes = 0 }}
+                            {{ $nonconfirmes = 0 }}
                             @if (!isset($demande->id))
                                 {{ $nonpayes += 1 }}
                             @elseif($demande->deja_paye == 0)
