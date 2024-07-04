@@ -19,13 +19,20 @@ Route::get('/apropos', Apropos::class);
 Route::get('/procedure', Procedure::class);
 Route::get('/verifier', Verifier::class);
 
-Route::get('/login', Login::class);
-Route::get('/register', Register::class);
-Route::get('/forgot', ForgotPassword::class);
-Route::get('reset', ResetPassword::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/logout', function () {
+        auth()->logout();
+        return redirect('/');
+    });
+    Route::get('user-espace', UserEspace::class);
+    Route::get('user-espace/{id}', Suivi::class);
+    Route::get('demande-form', DemandeForm::class);
+    Route::get('payement', Payement::class);
+});
 
-Route::get('user-espace', UserEspace::class);
-Route::get('user-espace/{id}', Suivi::class);
-Route::get('demande-form', DemandeForm::class);
-
-Route::get('payement', Payement::class);
+Route::middleware('guest')->group(function () {
+    Route::get('/login', Login::class);
+    Route::get('/register', Register::class);
+    Route::get('/forgot', ForgotPassword::class);
+    Route::get('reset', ResetPassword::class);
+});
