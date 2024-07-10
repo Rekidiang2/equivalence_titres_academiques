@@ -33,6 +33,6 @@ Route::middleware('auth')->group(function () {
 Route::middleware('guest')->group(function () {
     Route::get('/login', Login::class);
     Route::get('/register', Register::class);
-    Route::get('/forgot', ForgotPassword::class);
-    Route::get('reset', ResetPassword::class);
+    Route::get('/forgot', ForgotPassword::class)->name('password.request');
+    Route::get('reset/{token}', ResetPassword::class)->name('password.reset');
 });
