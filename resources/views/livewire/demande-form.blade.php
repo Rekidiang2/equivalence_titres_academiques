@@ -6,6 +6,12 @@
         </p>
     </div>
 
+    @if (session()->has('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <form wire:submit.prevent='demander'>
         <!-- Form Title -->
         <div class="mb-5">
@@ -147,35 +153,35 @@
         <!-- addresse, email  & telephone -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="addresse" id="addresse"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('addresse') border-red-500 @enderror"
+                <input type="text" wire:model="addresse_requerant" id="addresse_requerant"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('addresse_requerant') border-red-500 @enderror"
                     placeholder=" ">
-                @error('addresse')
+                @error('addresse_requerant')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="addresse"
+                <label for="addresse_requerant"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Addresse</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="email" id="email"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('email') border-red-500 @enderror"
+                <input type="text" wire:model="email_requerant" id="email_requerant"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('email_requerant') border-red-500 @enderror"
                     placeholder=" ">
-                @error('email')
+                @error('email_requerant')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="email"
+                <label for="email_requerant"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Email</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="phone" id="phone"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('phone') border-red-500 @enderror"
+                <input type="text" wire:model="phone_requerant" id="phone_requerant"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('phone_requerant') border-red-500 @enderror"
                     placeholder=" ">
-                @error('phone')
+                @error('phone_requerant')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="phone"
+                <label for="phone_requerant"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Telephone</label>
             </div>
@@ -186,71 +192,71 @@
         <!-- nom universite origine, nom universite francais  & secteur -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="nom_origine" id="nom_origine"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('nom_origine') border-red-500 @enderror"
+                <input type="text" wire:model="nom_univ_origine" id="nom_univ_origine"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('nom_univ_origine') border-red-500 @enderror"
                     placeholder=" ">
-                @error('nom_origine')
+                @error('nom_univ_origine')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="nom_origine"
+                <label for="nom_univ_origine"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                    Nom Universite (Origine)</label>
+                    Nom de l'Universite</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="nom_fr" id="nom_fr"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('nom_fr') border-red-500 @enderror"
+                <input type="text" wire:model="nom_univ_fr" id="nom_univ_fr"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('nom_univ_fr') border-red-500 @enderror"
                     placeholder=" ">
-                @error('nom_fr')
+                @error('nom_univ_fr')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="nom_fr"
+                <label for="nom_univ_fr"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                    Nom Universite (Francais)</label>
+                    Nom Universite en Francais</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="secteur" id="secteur"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('secteur') border-red-500 @enderror"
+                <input type="text" wire:model="secteur_univ" id="secteur_univ"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('secteur_univ') border-red-500 @enderror"
                     placeholder=" ">
-                @error('secteur')
+                @error('secteur_univ')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="secteur"
+                <label for="secteur_univ"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Secteur (Public/Prive)</label>
             </div>
         </div>
-        <!-- Annee creation, pays  & province -->
+        <!-- date creation, pays  & province -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="annee_creation" id="annee_creation"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('annee_creation') border-red-500 @enderror"
+                <input type="text" wire:model="date_creation" id="date_creation"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('date_creation') border-red-500 @enderror"
                     placeholder=" ">
-                @error('annee_creation')
+                @error('date_creation')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="annee_creation"
+                <label for="date_creation"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Date de Creation</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="pays" id="pays"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('pays') border-red-500 @enderror"
+                <input type="text" wire:model="pays_etude" id="pays_etude"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('pays_etude') border-red-500 @enderror"
                     placeholder=" ">
-                @error('pays')
+                @error('pays_etude')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="pays"
+                <label for="pays_etude"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Pays d'Etudes</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="province_ville" id="province_ville"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('province_ville') border-red-500 @enderror"
+                <input type="text" wire:model="province_ville_etude" id="province_ville_etude"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('province_ville_etude') border-red-500 @enderror"
                     placeholder=" ">
-                @error('province_ville')
+                @error('province_ville_etude')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="province_ville"
+                <label for="province_ville_etude"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Province ou Ville</label>
             </div>
@@ -258,35 +264,35 @@
         <!-- site web, email universite  & telephone universite -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="siteweb" id="siteweb"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('siteweb') border-red-500 @enderror"
+                <input type="text" wire:model="siteweb_univ" id="siteweb_univ"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('siteweb_univ') border-red-500 @enderror"
                     placeholder=" ">
-                @error('siteweb')
+                @error('siteweb_univ')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="siteweb"
+                <label for="siteweb_univ"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Site web de l'Universite</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="etab_email1" id="etab_email1"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('etab_email1') border-red-500 @enderror"
+                <input type="text" wire:model="email_univ" id="email_univ"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('email_univ') border-red-500 @enderror"
                     placeholder=" ">
-                @error('etab_email1')
+                @error('email_univ')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="etab_email1"
+                <label for="email_univ"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Email de l'Universite</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="etab_phone1" id="etab_phone1"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('etab_phone1') border-red-500 @enderror"
+                <input type="text" wire:model="phone_univ" id="phone_univ"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('phone_univ') border-red-500 @enderror"
                     placeholder=" ">
-                @error('etab_phone1')
+                @error('phone_univ')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="etab_phone1"
+                <label for="phone_univ"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Telephone de l'Universite</label>
             </div>
@@ -333,13 +339,13 @@
         <!-- date diplome, date debut cursus  & date fin cursus -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="date" wire:model="date_delivrance" id="date_delivrance"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('date_delivrance') border-red-500 @enderror"
+                <input type="date" wire:model="date_diplome" id="date_diplome"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('date_diplome') border-red-500 @enderror"
                     placeholder=" ">
-                @error('date_delivrance')
+                @error('date_diplome')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="date_delivrance"
+                <label for="date_diplome"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Date Delivrance Diplome</label>
             </div>
@@ -366,88 +372,126 @@
                     Date Fin Cursus</label>
             </div>
         </div>
+        <!-- Mode Enseignement -->
+        <div class="grid md:grid-cols-1 md:gap-6">
+
+            <div class="relative z-0 w-full mb-5 group">
+                <select wire:model="mode_enseignement"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('mode_enseignement') border-red-500 @enderror"
+                    id="">
+                    <option disabled selected>Choisir Mode Enseignement</option>
+                    <option value="Presentiel">Presentiel</option>
+                    <option value="Online">Online</option>
+                    <option value="Online">Mixte</option>
+                </select>
+                <!--<input type="text" wire:model="releve_file" id="releve_file"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('releve_file') border-red-500 @enderror"
+                    placeholder=" ">-->
+                @error('mode_enseignement')
+                    <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
+                @enderror
+                <label for="releve_file"
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                    Mode Enseignement</label>
+            </div>
+        </div>
         <div class="mb-5">
             <p class="bg-blue-600 text-white font-bold text-lg pl-3">Joindre Documents</p>
         </div>
         <!-- Piece d'identite, preuve de sejour  & lettre de demande -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="file" wire:model="identite_file" id="lettre_demande"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('identite_file') border-red-500 @enderror"
+                <input type="file" wire:model="lettre_demande_copy" id="lettre_demande_copy"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('lettre_demande_copy') border-red-500 @enderror"
                     placeholder=" ">
-                @error('identite_file')
+                @error('lettre_demande_copy')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="identite_file"
+                <label for="lettre_demande_copy"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Lettre de Demande</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="file" wire:model="identite_file" id="identite_file"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('identite_file') border-red-500 @enderror"
+                <input type="file" wire:model="piece_identite_copy" id="piece_identite_copy"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('piece_identite_copy') border-red-500 @enderror"
                     placeholder=" ">
-                @error('identite_file')
+                @error('piece_identite_copy')
                     Date Debut Cursus
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="identite_file"
+                <label for="piece_identite_copy"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Piece d'Identite</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="file" wire:model="visa_file" id="visa_file"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('visa_file') border-red-500 @enderror"
+                <input type="file" wire:model="preuve_sejour_copy" id="preuve_sejour_copy"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('preuve_sejour_copy') border-red-500 @enderror"
                     placeholder=" ">
-                @error('visa_file')
+                @error('preuve_sejour_copy')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="visa_file"
+                <label for="preuve_sejour_copy"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Preuve de Sejour</label>
             </div>
         </div>
-        <!-- Piece d'identite, preuve de sejour  & lettre de demande -->
+        <!-- Diplome Base, Diplome Universitaire  & Releve de cote -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="file" wire:model="diplome_file" id="diplome_file"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('diplome_file') border-red-500 @enderror"
+                <input type="file" wire:model="diplome_base_copy" id="diplome_base_copy"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('diplome_base_copy') border-red-500 @enderror"
                     placeholder=" ">
-                @error('diplome_file')
+                @error('diplome_base_copy')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="diplome_file"
+                <label for="diplome_base_copy"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Diplome de Base</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="file" wire:model="diplome_file" id="diplome_file"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('diplome_file') border-red-500 @enderror"
+                <input type="file" wire:model="diplome_univ_copy" id="diplome_univ_copy"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('diplome_univ_copy') border-red-500 @enderror"
                     placeholder=" ">
-                @error('diplome_file')
+                @error('diplome_univ_copy')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="diplome_file"
+                <label for="diplome_univ_copy"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Diplomes Universitaires</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="file" wire:model="releve_file" id="releve_file"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('releve_file') border-red-500 @enderror"
+                <input type="file" wire:model="releve_cote_copy" id="releve_cote_copy"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('releve_cote_copy') border-red-500 @enderror"
                     placeholder=" ">
-                @error('releve_file')
+                @error('releve_cote_copy')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="releve_file"
+                <label for="releve_cote_copy"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Releves de Cote</label>
             </div>
         </div>
+
+
+        <!-- Submit Button -->
         <button type="submit"
             class="w-full text-white bg-blue-600 hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-blue-800 ">Soumettre
             Demande</button>
 
 
     </form>
+
+    <script>
+        document.addEventListener('livewire:load', function() {
+            Livewire.hook('message.processed', (message, component) => {
+                if (message.response.payload.uploaded) {
+                    // Display the progress (if applicable)
+                    let progressElements = document.querySelectorAll('progress');
+                    progressElements.forEach(progress => progress.value = 100);
+                }
+            });
+        });
+    </script>
 
 
 

@@ -41,113 +41,126 @@ class DemandeResource extends Resource
         return $form
             ->schema([
                 Group::make()->schema([
-                    Section::make('Identite')->schema([
-                        FileUpload::make('photo')
-                            ->label('Votre Photo')
-                            ->directory('photos')
-                            ->columnSpanFull(),
-                        Select::make('user_id')
-                            ->label('Customer')
-                            ->relationship('user', 'name')
-                            ->searchable()
-                            ->preload()
-                            ->required(),
-                        TextInput::make('nom')
-                            ->required(),
-                        TextInput::make('postnom')
-                            ->required(),
-                        TextInput::make('prenom')
-                            ->required(),
-                        Select::make('genre')
-                            ->options([
-                                'masculin' => 'Masculin',
-                                'feminin' => 'Feminin'
-                            ])
-                            ->required(),
-                        TextInput::make('lieu_naissance')
-                            ->required(),
-                        DatePicker::make('date_naissance')
-                            ->required(),
-                        Country::make('nationalite'),
-                        Select::make('type_identite')
-                            ->options([
-                                'passport' => 'PassPort',
-                                'carte_identite' => "Carte d'Identite",
-                            ])
-                            ->required(),
-                        TextInput::make('numero_identite')
-                            ->required(),
-                        TextInput::make('email')
-                            ->email()
-                            ->required(),
-                        TextInput::make('phone')
-                            ->tel()
-                            ->label('Telephone')
-                            ->required()
-                            ->columns(2),
-                        Textarea::make('Adresse')
-                            ->columnSpanFull(),
-                        FileUpload::make('identite_file')
-                            ->label('Piece Identite')
-                            ->directory('identites')
-                            ->columnSpanFull(),
-                        FileUpload::make('visa_file')
-                            ->label('Preuve de Sejour')
-                            ->directory('visas')
-                            ->multiple()
-                            ->columnSpanFull(),
-                        FileUpload::make('visa_file_')
-                            ->label('Lettre de Demande')
-                            ->directory('lettre_demande')
-                            ->columnSpanFull(),
-                    ])->columns(3)
+                    Section::make('Information Personnelle')
+                        ->schema([
+                            FileUpload::make('photo')
+                                ->label('Votre Photo')
+                                ->directory('photos')
+                                ->columnSpanFull(),
+                            Select::make('user_id')
+                                ->label('Customer')
+                                ->relationship('user', 'name')
+                                ->searchable()
+                                ->preload()
+                                ->required(),
+                            TextInput::make('nom')
+                                ->required(),
+                            TextInput::make('postnom')
+                                ->required(),
+                            TextInput::make('prenom')
+                                ->required(),
+                            Select::make('genre')
+                                ->options([
+                                    'masculin' => 'Masculin',
+                                    'feminin' => 'Feminin'
+                                ])
+                                ->required(),
+                            TextInput::make('lieu_naissance')
+                                ->required(),
+                            DatePicker::make('date_naissance')
+                                ->required(),
+                            Country::make('nationalite'),
+                            Select::make('type_identite')
+                                ->options([
+                                    'passport' => 'PassPort',
+                                    'carte_identite' => "Carte d'Identite",
+                                ])
+                                ->required(),
+                            TextInput::make('numero_identite')
+                                ->required(),
+                            TextInput::make('email_requerant')
+                                ->label('Email')
+                                ->email()
+                                ->required(),
+                            TextInput::make('phone_requerant')
+                                ->tel()
+                                ->label('Telephone')
+                                ->required()
+                                ->columns(2),
+                            Textarea::make('Adresse_requerant')
+                                ->label('Addresse')
+                                ->columnSpanFull(),
+                        ])
+                        ->columns(3)
                 ])->columnSpanFull(),
                 Group::make()->schema([
-                    Section::make('Institution de Formation')->schema([
-                        TextInput::make('nom_origine'),
+                    Section::make("Information de l'Universite")->schema([
+                        TextInput::make('nom_univ_origine')
+                            ->label("Non de l'Universite"),
                         TextInput::make('nom_fr')
-                            ->label('Non en fracais'),
-                        Select::make('secteur')
+                            ->label("Non de l'Universite en fracais"),
+                        Select::make('secteur_univ')
+                            ->label('Secteur (Public ou Prive)')
                             ->options([
                                 'public' => 'Public',
                                 'prive' => 'Prive',
                             ]),
-                        TextInput::make('annee_creation')
-                            ->label('Annee de Creation'),
-                        Country::make('pays')
+                        DatePicker::make('date_creation')
+                            ->label('Date de Creation'),
+                        Country::make('pays_univ')
                             ->label("Pays d'Etude"),
-                        TextInput::make('province_ville')
+                        TextInput::make('province_ville_etude')
                             ->label('Province ou Ville'),
-                        TextInput::make('siteweb')
+                        TextInput::make('siteweb_univ')
                             ->label('Site Web'),
-                        TextInput::make('etab_email1')
-                            ->label('Email 1'),
-                        TextInput::make('etab_email2')
-                            ->label('Email 2'),
-                        TextInput::make('etab_phone1')
-                            ->label('Telephone 1'),
-                        TextInput::make('etab_phone2')
-                            ->label('Telephone 2'),
+                        TextInput::make('email_univ')
+                            ->label("Email de l'Universite"),
+                        TextInput::make('phone_univ')
+                            ->label("Telephone de l'Universite"),
                     ])->columns(3)
                 ])->columnSpanFull(),
                 Group::make()->schema([
                     Section::make('Cursus Academique')->schema([
                         TextInput::make('grade'),
                         TextInput::make('option'),
-                        TextInput::make('num_diplome'),
-                        DatePicker::make('date_delivrance'),
+                        TextInput::make('num_diplome')
+                            ->label('Numero du DErnier Diplome'),
+                        DatePicker::make('date_diplome')
+                            ->label('Date Delivrance Diplome'),
                         DatePicker::make('date_debut_cursus'),
                         DatePicker::make('date_fin_cursus'),
-                        FileUpload::make('diplome_file')
-                            ->label('Joindre vos diplomes')
-                            ->directory('diplomes')
-                            ->multiple()
+                        Select::make('type_identite')
+                            ->options([
+                                'presentiel' => 'Presentiel',
+                                'online' => 'Online',
+                                'mixte' => 'Mixte',
+                            ])
                             ->columnSpanFull(),
-                        FileUpload::make('releve_file')
-                            ->label('Joindre vos Releves de cote')
-                            ->directory('releves')
-                            ->multiple()
-                            ->columnSpanFull(),
+                    ])->columns(3)
+                ])->columnSpanFull(),
+                Group::make()->schema([
+                    Section::make('Joindre Documents')->schema([
+                        FileUpload::make('piece_identite_copy')
+                            ->label('Piece Identite')
+                            ->directory('pieces_identite'),
+                        FileUpload::make('preuve_sejour_copy')
+                            ->label('Preuve de Sejour')
+                            ->directory('preuves_sejour')
+                            ->multiple(),
+                        FileUpload::make('lettre_demande_copy')
+                            ->label('Lettre de Demande')
+                            ->directory('lettre_demande'),
+                        FileUpload::make('diplome_base_copy')
+                            ->label('Diplome de Base')
+                            ->directory('diplome_base'),
+                        FileUpload::make('diplome_univ_copy')
+                            ->label('Diplomes Universitaires')
+                            ->directory('diplome_univ')
+                            ->multiple(),
+                        FileUpload::make('releve_cote_copy')
+                            ->label('Releves de cote')
+                            ->directory('releve_cote')
+                            ->multiple(),
                     ])->columns(3)
                 ])->columnSpanFull(),
             ]);

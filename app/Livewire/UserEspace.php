@@ -15,14 +15,15 @@ class UserEspace extends Component
 
     public function render()
     {
+        $user_id = auth()->user()->id;
         // $demandes = Demande::where('user_id', 1)->get();
         $demandes = Demande::leftJoin('payements', 'demandes.id', '=', 'payements.demande_id')
-            ->where('demandes.user_id', 1)
+            ->where('demandes.user_id', $user_id)
             ->select('demandes.*', 'payements.*')
             ->get();
 
         $dossiers = Dossier::join('demandes', 'dossiers.demande_id', '=', 'demandes.id')
-            ->where('dossiers.user_id', 1)
+            ->where('dossiers.user_id', $user_id)
             ->select('dossiers.*', 'demandes.*')
             ->get();
         // $demandes = Demande::query()->where('user_id', 1);
