@@ -98,7 +98,7 @@
                                             d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                     </svg>
 
-                                    {{ auth()->user()->name }}
+                                    {{ ucfirst(auth()->user()->name) }}
                                     <svg class="ms-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
                                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -111,8 +111,8 @@
                                 <div
                                     class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 md:w-48 hidden z-10 bg-white md:shadow-md rounded-lg p-2 dark:bg-gray-800 md:dark:border dark:border-gray-700 dark:divide-gray-700 before:absolute top-full md:border before:-top-5 before:start-0 before:w-full before:h-5">
                                     <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                        href="#">
-                                        Mes Dossiers
+                                        href="/user-espace">
+                                        Ton Espace
                                     </a>
 
                                     <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
@@ -130,6 +130,37 @@
                 </div>
             </div>
         </div>
+        @auth
+            <div class="pointer-events-none fixed inset-x-0 top-15 mt-2 mb-8  sm:flex sm:justify-start p-2">
+                <div
+                    class="pointer-events-auto flex w-full max-w-sm divide-x ml-2 opacity-50  divide-neutral-200 rounded-lg bg-white shadow-xl border h-12">
+                    <div class="flex w-0 flex-1 items-center p-0">
+
+                        <div class="w-full inline-flex">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="size-7 text-red-600">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.05 4.575a1.575 1.575 0 1 0-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 0 1 3.15 0v1.5m-3.15 0 .075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 0 1 3.15 0V15M6.9 7.575a1.575 1.575 0 1 0-3.15 0v8.175a6.75 6.75 0 0 0 6.75 6.75h2.018a5.25 5.25 0 0 0 3.712-1.538l1.732-1.732a5.25 5.25 0 0 0 1.538-3.712l.003-2.024a.668.668 0 0 1 .198-.471 1.575 1.575 0 1 0-2.228-2.228 3.818 3.818 0 0 0-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0 1 16.35 15m.002 0h-.002" />
+                            </svg>
+                            <p class="text-lg font-medium text-neutral-900"><span class="text-red-600">Bonjour, </span>
+                                {{ ucfirst(auth()->user()->name) }}</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div class="flex flex-col divide-y divide-neutral-200">
+                            <div class="flex h-0 flex-1"> <a href="/user-espace" type="button"
+                                    class="flex w-full items-center justify-center rounded-none rounded-tr-lg border border-transparent px-4 py-3 text-sm font-medium text-blue-800 hover:text-blue-600 focus:z-10 focus:outline-none focus:ring-2 focus:ring-orange-600">Ton
+                                    Espace</a>
+                            </div>
+                            <div class="flex h-0 flex-1"> <a href="/logout"
+                                    class="flex w-full items-center justify-center rounded-none rounded-br-lg border border-transparent px-4 py-3 text-sm font-medium text-red-800 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-orange-600">Deconnecter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endauth
 
     </nav>
 
