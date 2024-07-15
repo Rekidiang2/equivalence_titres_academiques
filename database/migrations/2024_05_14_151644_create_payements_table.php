@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('payements', function (Blueprint $table) {
             $table->id();
             $table->foreignId('demande_id')->constrained('demandes')->cascadeOnDelete();
-            $table->decimal('montant_cdf', 10, 2);
-            $table->decimal('montant_usd', 10, 2);
+            $table->decimal('montant_cdf', 10, 2)->nullable();
+            $table->decimal('montant_usd', 10, 2)->nullable();
             $table->string('numero_note')->nullable();
             $table->date('date_taxation')->nullable();
             $table->string('copie_note')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('numero_bordereau')->nullable();
             $table->date('date_bordereau')->nullable();
             $table->string('copie_bordereau')->nullable();
-            $table->boolean('deja_paye');
+            $table->boolean('deja_paye')->default(false);
             $table->timestamps();
         });
     }

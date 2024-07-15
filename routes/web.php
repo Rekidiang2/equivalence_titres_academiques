@@ -24,10 +24,10 @@ Route::middleware('auth')->group(function () {
         auth()->logout();
         return redirect('/');
     });
-    Route::get('user-espace', UserEspace::class)->name('user.espace');
-    Route::get('user-espace/{id}', Suivi::class);
-    Route::get('demande-form', DemandeForm::class);
-    Route::get('payement', Payement::class);
+    Route::get('/user-espace', UserEspace::class)->name('user.espace');
+    Route::get('/user-espace/{id}', Suivi::class);
+    Route::get('/demande-form', DemandeForm::class);
+    Route::get('/user-espace/{id}', Payement::class);
 });
 
 Route::middleware('guest')->group(function () {

@@ -19,7 +19,7 @@ class UserEspace extends Component
         // $demandes = Demande::where('user_id', 1)->get();
         $demandes = Demande::leftJoin('payements', 'demandes.id', '=', 'payements.demande_id')
             ->where('demandes.user_id', $user_id)
-            ->select('demandes.*', 'payements.*')
+            ->select('demandes.id as dmd_id', 'demandes.*', 'payements.*')  // Explicitly select columns
             ->get();
 
         $dossiers = Dossier::join('demandes', 'dossiers.demande_id', '=', 'demandes.id')

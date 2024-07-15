@@ -1,10 +1,12 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto h-screen">
+<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-10">
+    <!-- Nouvelle demande -->
     <div class="flex justify-center">
         <a href="/demande-form"
             class=" hover:underline text-center bg-white text-blue-600 text-lg font-bold rounded-full my-3  px-4 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Nouvelle Demande
         </a>
     </div>
+    <!-- Page tabs -->
     <nav class="relative z-0 flex border rounded-xl overflow-hidden dark:border-neutral-700" aria-label="Tabs"
         role="tablist">
         <button type="button"
@@ -23,52 +25,47 @@
     </nav>
 
     <div class="mt-3">
+        <!-- Mes demandes tab -->
         <div id="bar-with-underline-1" role="tabpanel" aria-labelledby="bar-with-underline-item-1">
-
-
-
-
-
             <caption
-                class="p-5 mb-5 text-2xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                class="p-5 bg-blue-400 mb-5 text-2xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                 Mes Demandes
             </caption>
-
-
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    @if (count($demandes) > 0)
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Numero Demande
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Nom Complet
+                                </th>
 
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Numero Demande
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Nom Complet
-                            </th>
-
-                            <th scope="col" class="px-6 py-3">
-                                Genre
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Grade
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Option
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                etablissement
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Pays d'Etudes
-                            </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Genre
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Grade
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Option
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    etablissement
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Pays d'Etudes
+                                </th>
 
 
-                            <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Edit</span>
-                            </th>
-                        </tr>
-                    </thead>
+                                <th scope="col" class="px-6 py-3">
+                                    <span class="sr-only">Edit</span>
+                                </th>
+                            </tr>
+                        </thead>
+                    @endif
                     <?php
                     $confirmes = 0;
                     $nonpayes = 0;
@@ -95,7 +92,7 @@
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $demande->demande_id }}
+                                        {{ $demande->dmd_id }}
                                     </th>
                                     <th scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -112,10 +109,10 @@
                                         {{ $demande->option }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $demande->nom_fr }}
+                                        {{ $demande->nom_univ_fr }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $demande->pays }}
+                                        {{ $demande->pays_etude }}
                                     </td>
 
                                     <td
@@ -137,13 +134,14 @@
 
                                     </td>
 
-                                    <td class="px-1 py-1 text-right ml-4 bg-green-600 rounded-xl border-2">
+                                    <td class="px-1 py-1 text-right ml-4  rounded-xl border-2">
                                         <a href="/user-espace/2"
-                                            class="font-medium bg-green-400 rounded-xl border-4 border-gray text-white text-xl py-1 px-1 dark:text-blue-500 hover:underline">Voir</a>
+                                            class="font-medium bg-green-400 rounded-xl border-1 border-gray text-white text-xl py-1 px-1 dark:text-blue-500 hover:underline">Voir</a>
                                     </td>
+
                                     @if (!isset($demande->id))
-                                        <td class="px-1 py-2 text-right ml-4 bg-blue-600 rounded-xl ">
-                                            <a href="/payement"
+                                        <td class="px-1 py-2 text-right ml-4  rounded-xl ">
+                                            <a href="/user-espace/{{ $demande->dmd_id }}"
                                                 class="font-medium  bg-blue-400 rounded-xl border-4 border-gray text-white text-xl py-1 px-1 dark:text-blue-500 hover:underline ">Paiement</a>
                                         </td>
                                     @endif
@@ -152,18 +150,18 @@
 
                             </tbody>
                         @endforeach
+                        <p
+                            class="p-1 m-1 text-center text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400">
+                            Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
 
-                        <p class="text-gray-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
-                                class="font-semibold text-gray-800 dark:text-neutral-200">
-
-                                {{ count($demandes) }}</em> soumise.
+                                {{ count($demandes) }}</em> demande soumise.
                         </p>
-
                         @if ($nonpayes > 0)
-                            <p class="text-red-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
-                                    class="font-semibold text-gray-800 dark:text-neutral-200">
+                            <p
+                                class="m-1 p-1 text-center bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg mb-4 dark:bg-red-800/10 dark:border-red-900 dark:text-red-500">
+                                Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
 
-                                    {{ $nonpayes }}</em> Demandes non payes, Veuillez
+                                    {{ $nonpayes }}</em> Demandes non payees, Veuillez
                                 enregistrer votre
                                 payement en cliquant sur <em
                                     class="font-semibold underline text-blue-600">Payement</em>.
@@ -197,19 +195,23 @@
 
 
                         @if (!isset($demande->id))
+                            <!--
                             <p class="dark:text-neutral-400 text-center mb-2 text-red-600">Veuillez
                                 enregistrer votre
                                 payement en cliquant sur <em class="font-semibold underline text-blue-600">Payement</em>
                             </p>
+                        -->
 
                             <div>
                         @endif
                     @else
-                        <p class="text-gray-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
-                                class="font-semibold text-gray-800 dark:text-neutral-200">
+                        <p
+                            class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
+                            Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
 
                                 aucune demande</em> soumise.
                         </p>
+
 
                     @endif
                 </table>
@@ -223,6 +225,7 @@
             <!-- pagination end -->
 
         </div>
+        <!-- Mes dossiers tab -->
         <div id="bar-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="bar-with-underline-item-2">
 
 
@@ -313,7 +316,7 @@
                             <p class="text-gray-500 dark:text-neutral-400 text-center">
                                 Vous avez <em
                                     class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes - count($dossiers) }}</em>
-                                dossiers en cours d'enregistrent.
+                                payement non confirmer.
                             </p>
                         @endif
                     @else
@@ -322,8 +325,22 @@
                                 Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">aucun</em>
                                 dossiers enregistre.
                             </p>
+                            <p
+                                class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
+                                Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                    aucune demande</em> soumise.
+                            </p>
                         @else
+                            <!--
                             <p class="text-gray-500 dark:text-neutral-400 text-center">
+                                Vous avez <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes }}</em>
+                                dossiers en cours d'enregistrent.
+                            </p>
+                        -->
+                            <p
+                                class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
                                 Vous avez <em
                                     class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes }}</em>
                                 dossiers en cours d'enregistrent.
@@ -334,11 +351,13 @@
                     @endif
 
                     @if ($confirmes <= 0)
+                        <!--
                         <p class="text-gray-500 dark:text-neutral-400 text-center">
                             Vous avez <em
                                 class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes - count($dossiers) }}</em>
                             dossiers en cours d'enregistrent.
                         </p>
+                    -->
                     @endif
 
 
