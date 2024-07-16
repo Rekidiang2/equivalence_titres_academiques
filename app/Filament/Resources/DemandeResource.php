@@ -87,7 +87,7 @@ class DemandeResource extends Resource
                                 ->label('Telephone')
                                 ->required()
                                 ->columns(2),
-                            Textarea::make('Adresse_requerant')
+                            Textarea::make('addresse_requerant')
                                 ->label('Addresse')
                                 ->columnSpanFull(),
                         ])
@@ -97,7 +97,7 @@ class DemandeResource extends Resource
                     Section::make("Information de l'Universite")->schema([
                         TextInput::make('nom_univ_origine')
                             ->label("Non de l'Universite"),
-                        TextInput::make('nom_fr')
+                        TextInput::make('nom_univ_fr')
                             ->label("Non de l'Universite en fracais"),
                         Select::make('secteur_univ')
                             ->label('Secteur (Public ou Prive)')
@@ -107,7 +107,7 @@ class DemandeResource extends Resource
                             ]),
                         DatePicker::make('date_creation')
                             ->label('Date de Creation'),
-                        Country::make('pays_univ')
+                        Country::make('pays_etude')
                             ->label("Pays d'Etude"),
                         TextInput::make('province_ville_etude')
                             ->label('Province ou Ville'),
@@ -121,7 +121,12 @@ class DemandeResource extends Resource
                 ])->columnSpanFull(),
                 Group::make()->schema([
                     Section::make('Cursus Academique')->schema([
-                        TextInput::make('grade'),
+                        Select::make('grade')
+                            ->options([
+                                'licence' => 'Licence',
+                                'master' => 'Master',
+                                'docteur' => 'Docteur (PhD)',
+                            ]),
                         TextInput::make('option'),
                         TextInput::make('num_diplome')
                             ->label('Numero du DErnier Diplome'),
@@ -129,7 +134,7 @@ class DemandeResource extends Resource
                             ->label('Date Delivrance Diplome'),
                         DatePicker::make('date_debut_cursus'),
                         DatePicker::make('date_fin_cursus'),
-                        Select::make('type_identite')
+                        Select::make('mode_enseignement')
                             ->options([
                                 'presentiel' => 'Presentiel',
                                 'online' => 'Online',
@@ -142,24 +147,30 @@ class DemandeResource extends Resource
                     Section::make('Joindre Documents')->schema([
                         FileUpload::make('piece_identite_copy')
                             ->label('Piece Identite')
+                            ->openable()
                             ->directory('pieces_identite'),
                         FileUpload::make('preuve_sejour_copy')
                             ->label('Preuve de Sejour')
-                            ->directory('preuves_sejour')
+                            ->directory('preuve_sejour')
+                            ->openable()
                             ->multiple(),
                         FileUpload::make('lettre_demande_copy')
                             ->label('Lettre de Demande')
+                            ->openable()
                             ->directory('lettre_demande'),
                         FileUpload::make('diplome_base_copy')
                             ->label('Diplome de Base')
+                            ->openable()
                             ->directory('diplome_base'),
                         FileUpload::make('diplome_univ_copy')
                             ->label('Diplomes Universitaires')
                             ->directory('diplome_univ')
+                            ->openable()
                             ->multiple(),
                         FileUpload::make('releve_cote_copy')
                             ->label('Releves de cote')
                             ->directory('releve_cote')
+                            ->openable()
                             ->multiple(),
                     ])->columns(3)
                 ])->columnSpanFull(),
@@ -178,7 +189,7 @@ class DemandeResource extends Resource
                     ->searchable()
                     ->sortable(),
                 ImageColumn::make('photo'),
-                TextColumn::make('pays')
+                TextColumn::make('pays_etude')
                     ->label("Pays d'Etudes"),
                 TextColumn::make('genre'),
                 TextColumn::make('grade'),

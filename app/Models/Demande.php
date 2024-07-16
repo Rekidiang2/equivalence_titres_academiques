@@ -48,14 +48,14 @@ class Demande extends Model
         'date_fin_cursus',
         'diplome_base_copy',
         'diplome_univ_copy',
-        'releve_cote_univ',
+        'releve_cote_copy',
         'mode_enseignement',
     ];
 
     protected $casts = [
-        'diplome_file' => 'array',
-        'visa_file' => 'array',
-        'releve_file' => 'array',
+        'diplome_univ_copy' => 'array',
+        'preuve_sejour_copy' => 'array',
+        'releve_cote_copy' => 'array',
     ];
 
     public function payement()

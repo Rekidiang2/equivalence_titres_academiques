@@ -44,7 +44,7 @@ class DossierResource extends Resource
         $grade = $request->query('grade');
         $option = $request->query('option');
         $pays = $request->query('pays');
-        $email = $request->query('email');
+        $email_requerant = $request->query('email_requerant');
         $etab_email1 = $request->query('etab_email1');
         $payement_id = $request->query('payement_id');
         $user_id = $request->query('user_id');
@@ -75,8 +75,8 @@ class DossierResource extends Resource
                                             Placeholder::make('grade')->label('Titre Obtenu')->content(isset($grade) ? $grade . ' en ' . $option : function ($state, Dossier $order) {
                                                 return $order->demande->grade . ' en ' . $order->demande->option;
                                             }),
-                                            Placeholder::make('email')->label('Email du concerne')->content(isset($email) ? $email : function ($state, Dossier $order) {
-                                                return $order->demande->email;
+                                            Placeholder::make('email_requerant')->label('Email du concerne')->content(isset($email_requerant) ? $email_requerant : function ($state, Dossier $order) {
+                                                return $order->demande->email_requerant;
                                             }),
                                         ])
                                         ->columns(2)

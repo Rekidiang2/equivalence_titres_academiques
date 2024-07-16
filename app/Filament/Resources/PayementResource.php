@@ -79,6 +79,7 @@ class PayementResource extends Resource
                             FileUpload::make('copie_note')
                                 ->directory('copie_note')
                                 ->label('Joindre la Note')
+                                ->openable()
                                 ->required(),
                         ]),
                     ]),
@@ -93,6 +94,7 @@ class PayementResource extends Resource
                             FileUpload::make('copie_bordereau')
                                 ->label('Joindre le Bordereau')
                                 ->directory('copie_bordereau')
+                                ->openable()
                                 ->required()
                                 ->label('Joindre Bordereau'),
                         ]),

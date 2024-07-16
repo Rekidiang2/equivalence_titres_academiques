@@ -131,7 +131,7 @@
             </div>
         </div>
         @auth
-            <div class="pointer-events-none fixed inset-x-0 top-15 mt-2 mb-8  sm:flex sm:justify-start p-2">
+            <div class="pointer-events-none fixed inset-x-0 bottom-0 mt-0 mb-4  sm:flex sm:justify-start p-2">
                 <div
                     class="pointer-events-auto flex w-full max-w-sm divide-x ml-2 opacity-50  divide-neutral-200 rounded-lg bg-white shadow-xl border h-12">
                     <div class="flex w-0 flex-1 items-center p-0">

@@ -1,4 +1,4 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-10">
+<div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-10">
     <!-- Nouvelle demande -->
     <div class="flex justify-center">
         <a href="/demande-form"
@@ -34,33 +34,36 @@
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     @if (count($demandes) > 0)
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     Numero Demande
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     Nom Complet
                                 </th>
 
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     Genre
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     Grade
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     Option
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     etablissement
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     Pays d'Etudes
+                                </th>
+                                <th scope="col" class="px-4 py-2">
+                                    Statut Payement
                                 </th>
 
 
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="px-4 py-2">
                                     <span class="sr-only">Edit</span>
                                 </th>
                             </tr>
@@ -91,43 +94,42 @@
                             <tbody>
                                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $demande->dmd_id }}
                                     </th>
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                        class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $demande->fullName }}
                                     </th>
 
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 py-1">
                                         {{ $demande->genre }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 py-1">
                                         {{ $demande->grade }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 py-1">
                                         {{ $demande->option }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 py-1">
                                         {{ $demande->nom_univ_fr }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 py-1">
                                         {{ $demande->pays_etude }}
                                     </td>
 
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap rounded-full text-sm text-gray-800 dark:text-gray-200">
+                                    <td class="px-4 py-1 whitespace-nowrap  text-sm text-gray-800 dark:text-gray-200">
                                         @if (!isset($demande->id))
                                             <span class="bg-red-500 py-1 px-3 rounded text-white shadow">
                                                 Non Paye
                                             </span>
                                         @elseif($demande->deja_paye == 1)
                                             <span class="bg-blue-500 py-1 px-3 rounded text-white shadow">
-                                                Confirme
+                                                confirmé
                                             </span>
                                         @else
-                                            <span class="bg-yellow-500 py-1 px-3 rounded text-white shadow">
-                                                Non Confirme
+                                            <span class="bg-yellow-200 py-1 px-3  text-black shadow">
+                                                Attente <br> Confirmation
                                             </span>
                                         @endif
 

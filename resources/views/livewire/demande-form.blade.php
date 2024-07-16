@@ -81,9 +81,14 @@
         <!-- genre, lieu & date de naissance -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="genre" id="genre"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('genre') border-red-500 @enderror"
-                    placeholder=" ">
+                <select type="text" wire:model="genre" id="genre"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('genre') border-red-500 @enderror">
+
+                    <option disabled>Choisir votre Genre</option>
+
+                    <option value="masculin">Masculin</option>
+                    <option value="feminin">Feminin</option>
+                </select>
                 @error('genre')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
@@ -117,9 +122,13 @@
         <!-- nationalite, type identite  & numero identite -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="nationalite" id="nationalite"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('nationalite') border-red-500 @enderror"
-                    placeholder=" ">
+                <select type="text" wire:model="nationalite" id="nationalite"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('nationalite') border-red-500 @enderror">
+                    <option class="">Choisir votre Nationalite</option>
+                    @foreach ($liste_pays as $code => $name)
+                        <option value="{{ $code }}">{{ $name }}</option>
+                    @endforeach
+                </select>
                 @error('nationalite')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
@@ -128,9 +137,12 @@
                     Nationalite</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="type_identite" id="type_identite"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('type_identite') border-red-500 @enderror"
-                    placeholder=" ">
+                <select type="text" wire:model="type_identite" id="type_identite"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('type_identite') border-red-500 @enderror">
+                    <option disabled>Type Piece d'Identite</option>
+                    <option value="passport">Passport</option>
+                    <option value="carte_identite">Carte d'Identite</option>
+                </select>
                 @error('type_identite')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
@@ -214,9 +226,15 @@
                     Nom Universite en Francais</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="secteur_univ" id="secteur_univ"
+                <select type="text" wire:model="secteur_univ" id="secteur_univ"
                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('secteur_univ') border-red-500 @enderror"
                     placeholder=" ">
+                    <option disabled>Choisir Secteur</option>
+                    <option value="public">Public</option>
+                    <option value="prive">Prive</option>
+
+
+                </select>
                 @error('secteur_univ')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
@@ -228,7 +246,7 @@
         <!-- date creation, pays  & province -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="date_creation" id="date_creation"
+                <input type="date" wire:model="date_creation" id="date_creation"
                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('date_creation') border-red-500 @enderror"
                     placeholder=" ">
                 @error('date_creation')
@@ -239,9 +257,13 @@
                     Date de Creation</label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="pays_etude" id="pays_etude"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('pays_etude') border-red-500 @enderror"
-                    placeholder=" ">
+                <select type="text" wire:model="pays_etude" id="pays_etude"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('pays_etude') border-red-500 @enderror">
+                    <option class="">Choisir Pays d'Etude</option>
+                    @foreach ($liste_pays as $code => $name)
+                        <option value="{{ $code }}">{{ $name }}</option>
+                    @endforeach
+                </select>
                 @error('pays_etude')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
@@ -303,9 +325,13 @@
         <!-- Grade, option  & Numero diplome -->
         <div class="grid md:grid-cols-3 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
-                <input type="text" wire:model="grade" id="grade"
-                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('grade') border-red-500 @enderror"
-                    placeholder=" ">
+                <select type="text" wire:model="grade" id="grade"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('grade') border-red-500 @enderror">
+                    <option disabled>Choisir Grade Academique</option>
+                    <option value="licence">Licence</option>
+                    <option value="master">Master</option>
+                    <option value="docteur">docteur (PhD)</option>
+                </select>
                 @error('grade')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
@@ -380,9 +406,9 @@
                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('mode_enseignement') border-red-500 @enderror"
                     id="">
                     <option disabled selected>Choisir Mode Enseignement</option>
-                    <option value="Presentiel">Presentiel</option>
-                    <option value="Online">Online</option>
-                    <option value="Online">Mixte</option>
+                    <option value="presentiel">Presentiel</option>
+                    <option value="online">Online</option>
+                    <option value="mixte">Mixte</option>
                 </select>
                 <!--<input type="text" wire:model="releve_file" id="releve_file"
                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer @error('releve_file') border-red-500 @enderror"
@@ -390,7 +416,7 @@
                 @error('mode_enseignement')
                     <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                 @enderror
-                <label for="releve_file"
+                <label for="mode_enseignement"
                     class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                     Mode Enseignement</label>
             </div>
