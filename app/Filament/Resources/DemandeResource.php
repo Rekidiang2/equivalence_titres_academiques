@@ -227,13 +227,13 @@ class DemandeResource extends Resource
                             'grade' => $record->grade,
                             'option' => $record->option,
                             'prenom' => $record->prenom,
-                            'pays' => $record->pays,
-                            'email' => $record->email,
-                            'etab_email1' => $record->etab_email1,
+                            'pays_etude' => $record->pays_etude,
+                            'email_requerant' => $record->email_requerant,
+                            'email_univ' => $record->email_univ,
                             // 'payement_id' => optional($record->payement->demande)->id,  // Using optional() to safely access nested properties
                             'user_id' => $record->user_id,
                             'user_name' => $record->user->name,
-                            'etablissement' => $record->nom_fr,
+                            'nom_univ_fr' => $record->nom_univ_fr,
                         ]);
                     })
                     ->icon('heroicon-m-pencil')

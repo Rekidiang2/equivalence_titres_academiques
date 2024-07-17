@@ -118,7 +118,7 @@
                                         {{ $demande->pays_etude }}
                                     </td>
 
-                                    <td class="px-4 py-1 whitespace-nowrap  text-sm text-gray-800 dark:text-gray-200">
+                                    <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                         @if (!isset($demande->id))
                                             <span class="bg-red-500 py-1 px-3 rounded text-white shadow">
                                                 Non Paye
@@ -301,7 +301,7 @@
                                             class="bg-green-200 py-1 px-3 rounded text-black shadow">{{ $dossier->statut }}</span>
                                     </td>
                                     <td class="px-5 py-3  text-right ">
-                                        <a href="/user-espace/{{ $dossier->id }}"
+                                        <a href="/suivi/{{ $dossier->id }}"
                                             class="font-medium text-xl bg-blue-500 rounded-2xl px-5 py-2  text-white dark:text-blue-500 hover:underline">Suivi</a>
                                     </td>
                                 </tr>

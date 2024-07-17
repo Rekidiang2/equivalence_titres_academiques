@@ -43,13 +43,13 @@ class DossierResource extends Resource
         $prenon = $request->query('prenom');
         $grade = $request->query('grade');
         $option = $request->query('option');
-        $pays = $request->query('pays');
+        $pays_etude = $request->query('pays_etude');
         $email_requerant = $request->query('email_requerant');
-        $etab_email1 = $request->query('etab_email1');
+        $email_univ = $request->query('email_univ');
         $payement_id = $request->query('payement_id');
         $user_id = $request->query('user_id');
         $user_name = $request->query('user_name');
-        $etablissement = $request->query('etablissement');
+        $nom_univ_fr = $request->query('nom_univ_fr');
 
         $yearMonth = date('Ym');
 
@@ -75,9 +75,13 @@ class DossierResource extends Resource
                                             Placeholder::make('grade')->label('Titre Obtenu')->content(isset($grade) ? $grade . ' en ' . $option : function ($state, Dossier $order) {
                                                 return $order->demande->grade . ' en ' . $order->demande->option;
                                             }),
-                                            Placeholder::make('email_requerant')->label('Email du concerne')->content(isset($email_requerant) ? $email_requerant : function ($state, Dossier $order) {
-                                                return $order->demande->email_requerant;
-                                            }),
+                                            Placeholder::make('email_requerant')
+                                                ->label('Email du concerne')
+                                                ->content(
+                                                    isset($email_requerant) ? $email_requerant : function ($state, Dossier $order) {
+                                                        return $order->demande ? $order->demande->email_requerant : 'Non disponible';
+                                                    }
+                                                ),
                                         ])
                                         ->columns(2)
                                 ]),
@@ -85,15 +89,27 @@ class DossierResource extends Resource
                                 Group::make()->schema([
                                     Section::make('Etablissement')
                                         ->schema([
-                                            Placeholder::make('nom_fr')->label("Nom de L'Etablissement")->content(isset($etablissement) ? $etablissement : function ($state, Dossier $order) {
-                                                return $order->demande->nom_fr;
-                                            }),
-                                            Placeholder::make('pays')->label("Pays d'Etude")->content(isset($pays) ? $pays : function ($state, Dossier $order) {
-                                                return $order->demande->pays;
-                                            }),
-                                            Placeholder::make('etab_email1')->label("Email de l'Etablissement")->content(isset($etab_email1) ? $etab_email1 : function ($state, Dossier $order) {
-                                                return $order->demande->etab_email1;
-                                            }),
+                                            Placeholder::make('nom_univ_fr')
+                                                ->label("Nom de L'Etablissement")
+                                                ->content(
+                                                    isset($nom_univ_fr) ? $nom_univ_fr : function ($state, Dossier $order) {
+                                                        return $order->demande ? $order->demande->nom_univ_fr : 'Non disponible';
+                                                    }
+                                                ),
+                                            Placeholder::make('pays_etude')
+                                                ->label("Pays d'Etude")
+                                                ->content(
+                                                    isset($pays_etude) ? $pays_etude : function ($state, Dossier $order) {
+                                                        return $order->demande ? $order->demande->pays_etude : 'Non disponible';
+                                                    }
+                                                ),
+                                            Placeholder::make('email_univ')
+                                                ->label("Email de l'Université")
+                                                ->content(
+                                                    isset($email_univ) ? $email_univ : function ($state, Dossier $order) {
+                                                        return $order->demande ? $order->demande->email_univ : 'Non disponible';
+                                                    }
+                                                ),
                                         ])
                                         ->columns(2),
                                 ])

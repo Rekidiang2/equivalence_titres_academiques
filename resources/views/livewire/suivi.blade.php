@@ -40,12 +40,12 @@
                     </div>
                     <div class="flex items-center gap-x-2">
                         <p class="text-sm  tracking-wide text-gray-500">
-                            {{ $dossier->email }}
+                            {{ $dossier->email_requerant }}
                         </p>
                     </div>
                     <div class="flex items-center gap-x-2">
                         <p class="text-sm  tracking-wide text-gray-500">
-                            {{ $dossier->phone }}
+                            {{ $dossier->phone_requerant }}
                         </p>
                     </div>
                     <div class="mt-1 flex items-center gap-x-2">

@@ -20,7 +20,7 @@ class Suivi extends Component
     {
         $dossiers = Dossier::join('demandes', 'dossiers.demande_id', '=', 'demandes.id')
             ->where('dossiers.id', $this->id)
-            ->select('dossiers.*', 'demandes.nom', 'demandes.postnom', 'demandes.prenom', 'demandes.phone', 'demandes.email', 'demandes.grade', 'demandes.option')
+            ->select('dossiers.*', 'demandes.nom', 'demandes.postnom', 'demandes.prenom', 'demandes.phone_requerant', 'demandes.email_requerant', 'demandes.grade', 'demandes.option')
             ->first();
         return view('livewire.suivi', [
             'dossier' => $dossiers  // Dossier::where('id', $this->id)->firstOrFail()
