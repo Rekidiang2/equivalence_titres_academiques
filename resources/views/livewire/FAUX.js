@@ -1,7 +1,0 @@
-{"id":6,"user_id":1,"nom":"Makola","postnom":"Ekumbe","prenom":"Bob","genre":"masculin","lieu_naissance":"kinshasa","date_naissance":"1987-06-03","nationalite":"CD","photo":"photos\/01HYMP97812Q31454K416FCVVH.jpg","type_identite":"passport","numero_identite":"2024-05-12
-00:02:49","email":"your.email+fakedata22612@gmail.com","phone":"370-437-3834","Adresse":null,"identite_file":"identites\/01HYMP9784PS7KEJQDJG3PFQHV.jpg","visa_file":["visas\/01HYMP9786FFF66NRNQPQ7Q99J.jpg"],"nom_origine":"Jilin
-University","nom_fr":"Universite de
-Jilin","secteur":"public","annee_creation":1947,"pays":"CN","province_ville":"Julin","siteweb":"null","etab_email1":"your.email+fakedata54702@gmail.com","etab_email2":"your.email+fakedata90928@gmail.com","etab_phone1":"251-729-1901","etab_phone2":"481-436-5209","grade":"Master","option":"Apply
-Technology","num_diplome":"102","date_delivrance":"2024-11-08","date_debut_cursus":"2025-05-18","date_fin_cursus":"2024-07-02","diplome_file":["diplomes\/01HYMP9789CXGJJE6DSZX7J9HJ.pdf"],"releve_file":["releves\/01HYMP978BYM1K9FHZ3MQXGY2F.pdf"],"created_at":"2024-05-28T13:45:09.000000Z","updated_at":"2024-05-31T12:50:10.000000Z","demande_id":1,"montant_cdf":45135,"montant_usd":16.28999999999999914734871708787977695465087890625,"numero_note":"2023-12-06
-23:25:42","date_taxation":"23\/10\/2023","copie_note":"copie_note\/01HYZQ55ZR00P08YT3Y420ENGQ.pdf","numero_bordereau":"88888","date_bordereau":"07\/03\/2025","copie_bordereau":"copie_bordereau\/01HYZQ55ZXCBJ06F7CYWM37PXE.pdf","deja_paye":0,"fullName":"Makola
-Ekumbe Bob"}

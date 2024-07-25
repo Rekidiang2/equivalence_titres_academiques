@@ -1,4 +1,4 @@
-<div class="pt-10 h-screen  bg-indigo-50">
+<div class="pt-10 pb-10 bg-indigo-50">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -6,7 +6,7 @@
             <h1 class="my-4 text-5xl font-bold leading-tight text-blue-600">
                 Commission d'Equivalence des Diplômes
             </h1>
-            <p class="leading-normal text-2xl mb-8">
+            <p class="leading-normal text-2xl mb-8 font-serif">
                 La porte d'acces aux equivalences des
                 titres academiques obtenus hors de la Republique Democratique du Congo
             </p>

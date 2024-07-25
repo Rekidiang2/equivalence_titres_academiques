@@ -58,12 +58,15 @@ class DossierRelationManager extends RelationManager
                     ->label('Grade'),
                 TextColumn::make('demande.option')
                     ->label('Option'),
-                TextColumn::make('demande.pays')
+                TextColumn::make('demande.pays_etude')
                     ->label("Pays d'Etude"),
-                IconColumn::make($deja)
-                    ->default($deja)
-                    ->boolean()
-                    ->label('Paye'),
+
+                /*
+                 * IconColumn::make($deja)
+                 *     ->default($deja)
+                 *     ->boolean()
+                 *     ->label('Paye'),
+                 */
                 TextColumn::make('statut')
                     ->label('Statut')
                     ->color('info')

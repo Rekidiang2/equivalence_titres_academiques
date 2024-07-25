@@ -15,12 +15,12 @@ class PaysDossierChart extends ChartWidget
     protected function getData(): array
     {
         $data = DB::table('demandes')
-            ->select('pays', DB::raw('count(*) as number_of_people'))
-            ->groupBy('pays')
+            ->select('pays_etude', DB::raw('count(*) as number_of_people'))
+            ->groupBy('pays_etude')
             ->orderBy('number_of_people', 'desc')
             ->get();
 
-        $labels = $data->pluck('pays')->toArray();
+        $labels = $data->pluck('pays_etude')->toArray();
         $peopleCount = $data->pluck('number_of_people')->toArray();
 
         return [

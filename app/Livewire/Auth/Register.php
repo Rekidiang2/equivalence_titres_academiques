@@ -32,10 +32,10 @@ class Register extends Component
         ]);
 
         // login user
-        auth()->login($user);
+        // auth()->login($user);
 
         // redirect to home page
-        return redirect()->intended();
+        return redirect('/login');  // ->intended();
     }
 
     public function render()

@@ -1,4 +1,4 @@
-<div class="w-full mt-24 mb-4 max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-white">
+<div class="w-full  mb-4  py-2 px-4 sm:px-6 lg:px-8 mx-auto bg-indigo-50">
     <div class="flex justify-center">
         <p
             class="text-center text-black text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
@@ -18,11 +18,11 @@
     </div>
 
     <!-- Formulaire de paiement -->
-    <form wire:submit.prevent="payement" class="mx-16">
+    <form wire:submit.prevent="payement" class="px-16">
 
         <!-- Note de perception -->
         <div class="mb-5">
-            <p class="bg-blue-600 text-white font-bold text-sm pl-3">Note de Perception</p>
+            <p class="bg-blue-200 text-black font-bold text-center text-md pl-3">Note de Perception</p>
         </div>
         <input type="hidden" wire:model="demande_id" id="demande_id" value="{{ $demande->id }}">
 
@@ -67,7 +67,8 @@
 
         <!-- Bordereau de paiement -->
         <div class="mb-5">
-            <p class="bg-blue-600 text-white font-bold text-sm pl-3">Bordereau de Paiement</p>
+            <p class="bg-blue-200 text-black font-bold text-center text-md pl-3">Bordereau de Paiement</p>
+
         </div>
         <div class="grid md:grid-cols-3 md:gap-6 mb-6">
             <div class="relative z-0 w-full mb-5 group">

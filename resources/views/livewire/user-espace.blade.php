@@ -1,4 +1,4 @@
-<div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-10">
+<div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-0 h-screen">
     <!-- Nouvelle demande -->
     <div class="flex justify-center">
         <a href="/demande-form"
@@ -27,11 +27,13 @@
     <div class="mt-3">
         <!-- Mes demandes tab -->
         <div id="bar-with-underline-1" role="tabpanel" aria-labelledby="bar-with-underline-item-1">
+            <!--
             <caption
                 class="p-5 bg-blue-400 mb-5 text-2xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                 Mes Demandes
             </caption>
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+        -->
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 ">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     @if (count($demandes) > 0)
                         <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
@@ -62,10 +64,11 @@
                                     Statut Payement
                                 </th>
 
-
+                                <!--
                                 <th scope="col" class="px-4 py-2">
                                     <span class="sr-only">Edit</span>
                                 </th>
+                                -->
                             </tr>
                         </thead>
                     @endif
@@ -92,13 +95,12 @@
 
 
                             <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 pb-10">
                                     <th scope="row"
                                         class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $demande->dmd_id }}
                                     </th>
-                                    <th scope="row"
-                                        class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-4 py-1 font-medium text-gray-900  dark:text-white">
                                         {{ $demande->fullName }}
                                     </th>
 
@@ -120,15 +122,15 @@
 
                                     <td class="px-4 py-1 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                         @if (!isset($demande->id))
-                                            <span class="bg-red-500 py-1 px-3 rounded text-white shadow">
+                                            <span class="bg-red-100 py-1 px-3 rounded text-red-800 shadow">
                                                 Non Paye
                                             </span>
                                         @elseif($demande->deja_paye == 1)
-                                            <span class="bg-blue-500 py-1 px-3 rounded text-white shadow">
+                                            <span class="bg-blue-100 py-1 px-3 rounded text-blue-800 font-medium">
                                                 confirmé
                                             </span>
                                         @else
-                                            <span class="bg-yellow-200 py-1 px-3  text-black shadow">
+                                            <span class="bg-yellow-100 py-1 px-3 rounded text-yellow-800 ">
                                                 Attente <br> Confirmation
                                             </span>
                                         @endif
@@ -136,15 +138,38 @@
 
                                     </td>
 
-                                    <td class="px-1 py-1 text-right ml-4  rounded-xl border-2">
-                                        <a href="/user-espace/2"
-                                            class="font-medium bg-green-400 rounded-xl border-1 border-gray text-white text-xl py-1 px-1 dark:text-blue-500 hover:underline">Voir</a>
+                                    <td class="px-1 py-2 text-right ml-4  rounded-xl">
+                                        <a wire:navigate href="/voir-demande/{{ $demande->dmd_id }}">
+                                            <button type="button"
+                                                class="my-2 text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center  dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-500 dark:focus:ring-green-800">Voir
+                                                <svg class="h-6 w-6 inline-block text-green-700" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <circle cx="12" cy="12" r="2" />
+                                                    <path d="M2 12l1.5 2a11 11 0 0 0 17 0l1.5 -2" />
+                                                    <path d="M2 12l1.5 -2a11 11 0 0 1 17 0l1.5 2" />
+                                                </svg></button>
+
+
+                                        </a>
+
                                     </td>
 
                                     @if (!isset($demande->id))
                                         <td class="px-1 py-2 text-right ml-4  rounded-xl ">
-                                            <a href="/user-espace/{{ $demande->dmd_id }}"
-                                                class="font-medium  bg-blue-400 rounded-xl border-4 border-gray text-white text-xl py-1 px-1 dark:text-blue-500 hover:underline ">Paiement</a>
+                                            <a wire:navigate href="/user-espace/{{ $demande->dmd_id }}">
+                                                <button type="button"
+                                                    class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-1.5 text-center  dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Paiement
+                                                    <svg class="h-6 w-6 inline text-blue-800" fill="none"
+                                                        viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                </button>
+                                            </a>
                                         </td>
                                     @endif
                                 </tr>
@@ -152,44 +177,87 @@
 
                             </tbody>
                         @endforeach
-                        <p
-                            class="p-1 m-1 text-center text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400">
-                            Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
 
-                                {{ count($demandes) }}</em> demande soumise.
-                        </p>
-                        @if ($nonpayes > 0)
+                        @if (count($demandes) > 1)
                             <p
-                                class="m-1 p-1 text-center bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg mb-4 dark:bg-red-800/10 dark:border-red-900 dark:text-red-500">
+                                class="p-1 m-1 text-center text-xl text-blue-800 rounded-lg  dark:bg-gray-800 dark:text-blue-400 mb-10">
                                 Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
 
-                                    {{ $nonpayes }}</em> Demandes non payees, Veuillez
-                                enregistrer votre
-                                payement en cliquant sur <em
-                                    class="font-semibold underline text-blue-600">Payement</em>.
+                                    {{ count($demandes) }}</em> demandes soumises.
                             </p>
+                        @else
+                            <p
+                                class="p-1 m-1 text-center text-xl text-blue-800 rounded-lg bg-blue-5 dark:bg-gray-800 dark:text-blue-400 mb-10">
+                                Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                    {{ count($demandes) }}</em> demande soumise.
+                            </p>
+                        @endif
+                        @if ($nonpayes > 0)
+                            @if ($nonpayes > 1)
+                                <p
+                                    class="m-1 p-1 text-center bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg mb-0 dark:bg-red-800/10 dark:border-red-900 dark:text-red-500">
+                                    Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                        {{ $nonpayes }}</em> demandes non payées. Cliquez sur <em
+                                        class="font-semibold underline text-blue-600">Paiement</em>. pour enregistrer
+                                    vos paiements.
+
+                                </p>
+                            @else
+                                <p
+                                    class="m-1 p-1 text-center bg-red-100 border border-red-200 text-sm text-red-800 rounded-lg mb-0 dark:bg-red-800/10 dark:border-red-900 dark:text-red-500">
+                                    Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                        {{ $nonpayes }}</em> demande non payée. Cliquez sur <em
+                                        class="font-semibold underline text-blue-600">Paiement</em>. pour enregistrer
+                                    votre paiement.
+
+                                </p>
+                            @endif
                         @endif
 
 
                         @if ($nonconfirmes > 0)
-                            <p class="text-red-500 dark:text-neutral-400 text-center mb-2"> Vous avez <em
-                                    class="font-semibold text-gray-800 dark:text-neutral-200">
+                            @if ($nonconfirmes > 1)
+                                <p
+                                    class="p-1 mb-1 text-sm text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
+                                    Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
 
-                                    {{ $nonconfirmes }}</em> Demandes dont la confirmation de payement sont en
-                                Cours
-                                <em class="font-semibold underline text-black-600">Merci Pour votre patience</em>.
-                            </p>
+                                        {{ $nonconfirmes }}</em> paiements en attente de confirmation.
+                                </p>
+                            @else
+                                <p
+                                    class="p-1 mb-1 text-center text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
+                                    Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                        {{ $nonconfirmes }}</em> paiement en attente de confirmation.
+                                </p>
+                            @endif
                         @endif
 
                         @if ($confirmes > 0)
-                            <p class="text-blue-800 bg-white dark:text-neutral-400 text-center mb-2"> Veuillez cliquer
-                                sur
-                                l'onglet Dossiers pour suivre l'evolution de vos <em
-                                    class="font-semibold text-gray-800 dark:text-neutral-200">
+                            @if ($confirmes > 1)
+                                <p
+                                    class="p-1 m-1 text-center text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+                                    Cliquez sur
+                                    l'onglet 'Dossier' pour suivre l'évolution de vos <em
+                                        class="font-semibold text-gray-800 dark:text-neutral-200">
 
-                                    {{ $confirmes }}</em> dossiers.
+                                        {{ $confirmes }}</em> dossiers.
 
-                            </p>
+                                </p>
+                            @else
+                                <p
+                                    class="p-1 m-1 text-center text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+                                    Cliquez sur
+                                    l'onglet 'Dossier' pour suivre l'évolution de votre <em
+                                        class="font-semibold text-gray-800 dark:text-neutral-200">
+
+                                        {{ $confirmes }}</em> dossier.
+
+                                </p>
+                            @endif
                         @endif
 
 
@@ -208,7 +276,7 @@
                         @endif
                     @else
                         <p
-                            class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
+                            class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg  dark:bg-gray-800 dark:text-yellow-300 mb-10">
                             Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
 
                                 aucune demande</em> soumise.
@@ -230,14 +298,15 @@
         <!-- Mes dossiers tab -->
         <div id="bar-with-underline-2" class="hidden" role="tabpanel" aria-labelledby="bar-with-underline-item-2">
 
-
+            <!--
             <caption
                 class="p-5 mb-5 text-xl font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
                 Mes Dossiers
             </caption>
+-->
 
 
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 pt-5 ">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     @if (!is_null($dossiers) && count($dossiers) > 0)
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -279,8 +348,7 @@
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                         {{ $dossier->num_dossier }}
                                     </th>
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
                                         {{ $dossier->nom }} {{ $dossier->postnom }} {{ $dossier->prenom }}
                                     </th>
 
@@ -294,73 +362,57 @@
                                         {{ $dossier->option }}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $dossier->pays }}
+                                        {{ $dossier->pays_etude }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                         <span
-                                            class="bg-green-200 py-1 px-3 rounded text-black shadow">{{ $dossier->statut }}</span>
+                                            class="bg-green-100 py-1 px-3 rounded text-green-800  shadow">{{ $dossier->statut }}</span>
                                     </td>
-                                    <td class="px-5 py-3  text-right ">
-                                        <a href="/suivi/{{ $dossier->id }}"
-                                            class="font-medium text-xl bg-blue-500 rounded-2xl px-5 py-2  text-white dark:text-blue-500 hover:underline">Suivi</a>
+                                    <td class="px-1 py-2 text-right ml-4  rounded-xl">
+                                        <a wire:navigate href="/suivi/{{ $dossier->id }}">
+                                            <button type="button"
+                                                class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1 my-1 text-center  dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800 ">Suivi
+                                                <svg class="w-4 h-4 inline-block text-sm text-blue-700  dark:text-white"
+                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                    fill="currentColor" viewBox="0 0 10 16">
+                                                    <path
+                                                        d="M3.414 1A2 2 0 0 0 0 2.414v11.172A2 2 0 0 0 3.414 15L9 9.414a2 2 0 0 0 0-2.828L3.414 1Z" />
+                                                </svg></button>
+                                        </a>
                                     </td>
                                 </tr>
 
 
                             </tbody>
                         @endforeach
-                        <p class="text-gray-500 dark:text-neutral-400 text-center">
+                        <p
+                            class="p-1 m-1 text-center text-xl text-blue-800 rounded-lg  dark:bg-gray-800 dark:text-blue-400 mb-10">
                             Vous avez <em
                                 class="font-semibold text-gray-800 dark:text-neutral-200">{{ count($dossiers) }}</em>
                             dossiers.
                         </p>
-                        @if ($confirmes > 0)
-                            <p class="text-gray-500 dark:text-neutral-400 text-center">
+                    @else
+                        @if ($confirmes <= 0)
+                            <p
+                                class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg dark:bg-gray-800 dark:text-yellow-300 mb-10">
+                                Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">Aucun</em>
+                                dossier.
+                            </p>
+                        @endif
+
+                        @if ($confirmes - count($dossiers) > 0)
+                            <p
+                                class="p-1 mb-1 text-sm text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
                                 Vous avez <em
                                     class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes - count($dossiers) }}</em>
-                                payement non confirmer.
-                            </p>
-                        @endif
-                    @else
-                        @if (count($dossiers) == 0 && $confirmes < 0)
-                            <p class="text-gray-500 dark:text-neutral-400 text-center">
-                                Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">aucun</em>
-                                dossiers enregistre.
-                            </p>
-                            <p
-                                class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
-                                Vous avez <em class="font-semibold text-gray-800 dark:text-neutral-200">
-
-                                    aucune demande</em> soumise.
-                            </p>
-                        @else
-                            <!--
-                            <p class="text-gray-500 dark:text-neutral-400 text-center">
-                                Vous avez <em
-                                    class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes }}</em>
-                                dossiers en cours d'enregistrent.
-                            </p>
-                        -->
-                            <p
-                                class="p-1 m-1 text-xl text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
-                                Vous avez <em
-                                    class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes }}</em>
-                                dossiers en cours d'enregistrent.
+                                dossiers en cours de verification, dont les details serons affichés dans 24 heures.
                             </p>
                         @endif
 
-
                     @endif
 
-                    @if ($confirmes <= 0)
-                        <!--
-                        <p class="text-gray-500 dark:text-neutral-400 text-center">
-                            Vous avez <em
-                                class="font-semibold text-gray-800 dark:text-neutral-200">{{ $confirmes - count($dossiers) }}</em>
-                            dossiers en cours d'enregistrent.
-                        </p>
-                    -->
-                    @endif
+
+
 
 
 

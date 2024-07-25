@@ -82,6 +82,6 @@
             </div>
         </div>
     </div>
-    <a href="https://www.freepik.com/free-photos-vectors/background" class="text-gray-500 text-center">Background vector
-        created by freepik - www.freepik.com</a>
+    <a href="https://www.freepik.com/free-photos-vectors/background" class="text-gray-500 text-center">
+        By Kiese D. Reagan</a>
 </footer>

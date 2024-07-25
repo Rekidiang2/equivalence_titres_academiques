@@ -12,6 +12,7 @@ use App\Livewire\Procedure;
 use App\Livewire\Suivi;
 use App\Livewire\UserEspace;
 use App\Livewire\Verifier;
+use App\Livewire\VoirDemande;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomePage::class);
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/suivi/{id}', Suivi::class);
     Route::get('/demande-form', DemandeForm::class);
     Route::get('/user-espace/{id}', Payement::class);
+    Route::get('/voir-demande/{id}', VoirDemande::class);
 });
 
 Route::middleware('guest')->group(function () {
