@@ -4,7 +4,7 @@
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
 
             <h1 class="my-4 text-5xl font-bold leading-tight text-blue-600">
-                Commission d'Equivalence des Diplômes
+                Commission d'Equivalence des Niveaux d'Etudes
             </h1>
             <p class="leading-normal text-2xl mb-8 font-serif">
                 La porte d'acces aux equivalences des

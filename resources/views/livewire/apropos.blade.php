@@ -1,4 +1,4 @@
-<div class=" py-10 bg-indigo-50">
+<div class=" py-10 bg-white">
     <div class="flex justify-center">
         <p
             class="  text-center  text-black text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">

@@ -1,4 +1,4 @@
-<div class=" bg-indigo-50">
+<div class=" bg-white">
 
     <div class="flex justify-center">
         <p
@@ -42,12 +42,12 @@
 
                             <!-- Column 1 -->
                             <p
-                                class="p-1 m-1 text-md text-center text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300">
+                                class="p-1 m-1 text-md text-center text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-yellow-300">
                                 Traduction de tous les documents dans une langue autre que le
                                 français
 
                             </p>
-                            <div class="bg-white max-w-full mx-auto border border-gray-200">
+                            <div class="bg-blue-50 max-w-full mx-auto border border-gray-200">
 
                                 <ul class="shadow-box">
                                     <li class="relative border-b border-gray-200">
@@ -170,9 +170,9 @@
                             </p>
 
                             <!-- Column 1 -->
-                            <div class=" max-w-full mx-auto border border-gray-200">
+                            <div class="bg-blue-50 max-w-full mx-auto border border-gray-200">
 
-                                <ul class="shadow-box bg-white px-10">
+                                <ul class="shadow-box">
                                     <li class="relative border-b border-gray-200">
                                         <button type="button" class="w-full px-6 py-3 text-left"
                                             @click="selected !== 1 ? selected = 1 : selected = null">
