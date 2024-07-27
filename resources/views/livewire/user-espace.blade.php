@@ -1,4 +1,4 @@
-<div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-0 h-screen">
+<div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-0 bg-white ">
     <!-- Nouvelle demande -->
     <div class="flex justify-center">
         <a href="/demande-form"
@@ -36,7 +36,7 @@
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 ">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     @if (count($demandes) > 0)
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-blue-100 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-4 py-2">
                                     Numero Demande
@@ -64,11 +64,15 @@
                                     Statut Payement
                                 </th>
 
-                                <!--
+
                                 <th scope="col" class="px-4 py-2">
-                                    <span class="sr-only">Edit</span>
+                                    <span class="sr-only">Action</span>
                                 </th>
-                                -->
+
+                                <th scope="col" class="px-4 py-2">
+                                    <span class="sr-only">Action</span>
+                                </th>
+
                             </tr>
                         </thead>
                     @endif
@@ -93,12 +97,12 @@
 
 
                             <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 pb-10">
-                                    <th scope="row"
-                                        class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <tr
+                                    class="bg-gray-200bg-blue-50 border-b dark:bg-gray-800 dark:border-gray-700 pb-10 shadow-md ">
+                                    <th scope="row" class="px-4 py-1  whitespace-nowrap dark:text-white">
                                         {{ $demande->dmd_id }}
                                     </th>
-                                    <th scope="row" class="px-4 py-1 font-medium text-gray-900  dark:text-white">
+                                    <th scope="row" class="px-4 py-1   dark:text-white">
                                         {{ $demande->fullName }}
                                     </th>
 
@@ -305,7 +309,7 @@
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 pt-5 ">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     @if (!is_null($dossiers) && count($dossiers) > 0)
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-blue-100 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
                                     Numero Dossier
@@ -339,12 +343,12 @@
 
                         @foreach ($dossiers as $dossier)
                             <tbody>
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <tr
+                                    class="bg-gray-200bg-blue-50 border-b dark:bg-gray-800 dark:border-gray-700 pb-10 shadow-md ">
+                                    <th scope="row" class="px-6 py-4  whitespace-nowrap dark:text-white">
                                         {{ $dossier->num_dossier }}
                                     </th>
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900  dark:text-white">
+                                    <th scope="row" class="px-6 py-4   dark:text-white">
                                         {{ $dossier->nom }} {{ $dossier->postnom }} {{ $dossier->prenom }}
                                     </th>
 
