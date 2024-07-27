@@ -37,7 +37,7 @@
                                         @enderror
                                     </div>
                                     @error('password')
-                                        <p class="hidden text-red-600 mt-2" id="password-error">{{ $message }}</p>
+                                        <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                                     @enderror
                                 </div>
                                 <!-- End Form Group -->
@@ -49,7 +49,7 @@
                                         <input type="password" id="password_confirmation"
                                             wire:model="password_confirmation"
                                             class="py-3 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                                            required aria-describedby="email-error">
+                                            aria-describedby="email-error">
 
                                         @error('password_confirmation')
                                             <div
@@ -63,7 +63,7 @@
                                         @enderror
                                     </div>
                                     @error('password_confirmation')
-                                        <p class="hidden text-red-600 mt-2" id="password-error">{{ $message }}</p>
+                                        <p class=" text-red-600 mt-2" id="password-error">{{ $message }}</p>
                                     @enderror
                                 </div>
 
