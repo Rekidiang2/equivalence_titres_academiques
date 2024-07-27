@@ -309,6 +309,8 @@
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-4 pt-5 ">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     @if (!is_null($dossiers) && count($dossiers) > 0)
+
+
                         <thead class="text-xs text-gray-700 uppercase bg-blue-100 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
@@ -418,7 +420,16 @@
                             </p>
                         @endif
 
+
+
                     @endif
+
+                    <p
+                        class="p-1 m-1 text-center text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+                        Cliquez sur <em class="font-semibold text-gray-800 dark:text-neutral-200">Suivi</em>
+                        pour voir l'evolution votre dossier.
+
+                    </p>
 
 
 
