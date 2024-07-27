@@ -381,12 +381,21 @@
 
                             </tbody>
                         @endforeach
-                        <p
-                            class="p-1 m-1 text-center text-xl text-blue-800 rounded-lg  dark:bg-gray-800 dark:text-blue-400 mb-10">
-                            Vous avez <em
-                                class="font-semibold text-gray-800 dark:text-neutral-200">{{ count($dossiers) }}</em>
-                            dossiers.
-                        </p>
+                        @if (count($dossiers) > 1)
+                            <p
+                                class="p-1 m-1 text-center text-xl text-blue-800 rounded-lg  dark:bg-gray-800 dark:text-blue-400 mb-10">
+                                Vous avez <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">{{ count($dossiers) }}</em>
+                                dossiers.
+                            </p>
+                        @else
+                            <p
+                                class="p-1 m-1 text-center text-xl text-blue-800 rounded-lg  dark:bg-gray-800 dark:text-blue-400 mb-10">
+                                Vous avez <em
+                                    class="font-semibold text-gray-800 dark:text-neutral-200">{{ count($dossiers) }}</em>
+                                dossier.
+                            </p>
+                        @endif
                     @else
                         @if ($confirmes <= 0)
                             <p
