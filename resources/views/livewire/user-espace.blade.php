@@ -83,8 +83,6 @@
 
 
                         @foreach ($demandes as $demande)
-                            {{ $nonpayes = 0 }}
-                            {{ $nonconfirmes = 0 }}
                             @if (!isset($demande->id))
                                 {{ $nonpayes += 1 }}
                             @elseif($demande->deja_paye == 0)
@@ -193,6 +191,7 @@
                                     {{ count($demandes) }}</em> demande soumise.
                             </p>
                         @endif
+
                         @if ($nonpayes > 0)
                             @if ($nonpayes > 1)
                                 <p
@@ -251,10 +250,7 @@
                                 <p
                                     class="p-1 m-1 text-center text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
                                     Cliquez sur
-                                    l'onglet 'Dossier' pour suivre l'évolution de votre <em
-                                        class="font-semibold text-gray-800 dark:text-neutral-200">
-
-                                        {{ $confirmes }}</em> dossier.
+                                    l'onglet <b>Dossier</b> pour suivre l'évolution de votre dossier.
 
                                 </p>
                             @endif
