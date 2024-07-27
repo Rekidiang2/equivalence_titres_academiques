@@ -394,12 +394,24 @@
                                     class="font-semibold text-gray-800 dark:text-neutral-200">{{ count($dossiers) }}</em>
                                 dossiers.
                             </p>
+                            <p
+                                class="p-1 m-1 text-center text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+                                Cliquez sur <em class="font-semibold text-gray-800 dark:text-neutral-200">Suivi</em>
+                                pour voir l'evolution votre dossier.
+
+                            </p>
                         @else
                             <p
                                 class="p-1 m-1 text-center text-xl text-blue-800 rounded-lg  dark:bg-gray-800 dark:text-blue-400 mb-10">
                                 Vous avez <em
                                     class="font-semibold text-gray-800 dark:text-neutral-200">{{ count($dossiers) }}</em>
                                 dossier.
+                            </p>
+                            <p
+                                class="p-1 m-1 text-center text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
+                                Cliquez sur <em class="font-semibold text-gray-800 dark:text-neutral-200">Suivi</em>
+                                pour voir l'evolution votre dossier.
+
                             </p>
                         @endif
                     @else
@@ -424,12 +436,7 @@
 
                     @endif
 
-                    <p
-                        class="p-1 m-1 text-center text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400">
-                        Cliquez sur <em class="font-semibold text-gray-800 dark:text-neutral-200">Suivi</em>
-                        pour voir l'evolution votre dossier.
 
-                    </p>
 
 
 
