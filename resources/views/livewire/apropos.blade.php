@@ -28,10 +28,12 @@
 
         </div>
     </div>
-    <div class="flex justify-center">
-        <a wire:navigate href="/register"
-            class=" hover:underline text-center bg-blue-600 text-white text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-            Accéder
-        </a>
-    </div>
+    @guest
+        <div class="flex justify-center">
+            <a wire:navigate href="/register"
+                class=" hover:underline text-center bg-blue-600 text-white text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Accéder
+            </a>
+        </div>
+    @endguest
 </div>
