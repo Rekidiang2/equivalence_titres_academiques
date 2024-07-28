@@ -1,9 +1,9 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto min-h-screen bg-white">
     <div class="flex h-full items-center">
         <main class="w-full max-w-md mx-auto p-6 h-screen my-26">
             <div
                 class="bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700 mt-16">
-                <div class="p-4 sm:p-7">
+                <div class="p-4 sm:p-7 bg-blue-50">
                     <div class="text-center">
                         <h1 class="block text-2xl font-bold text-gray-800 dark:text-white">Connexion</h1>
                         <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">

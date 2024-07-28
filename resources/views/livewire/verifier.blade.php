@@ -1,4 +1,4 @@
-<div class="w-full  py-6 px-4 sm:px-6 lg:px-8 mx-auto bg-indigo-50">
+<div class="w-full  py-6 px-4 sm:px-6 lg:px-8 mx-auto bg-white min-h-screen">
     <div class="flex justify-center">
         <p
             class="  text-center  text-black text-xl font-bold rounded-full my-6 py-3 px-10 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
@@ -6,9 +6,10 @@
         </p>
     </div>
     <div class="flex h-full items-center">
-        <main class="w-full max-w-md mx-auto  py-32">
-            <div class="  bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                <div class="p-4 sm:p-7">
+        <main class="w-full max-w-md mx-auto  ">
+            <div
+                class="mt-10  bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-4 sm:p-7 bg-blue-50 ">
                     <div class="text-center">
 
                         <p class="mt-2 text-lg text-gray-600 dark:text-gray-400 font-sans">

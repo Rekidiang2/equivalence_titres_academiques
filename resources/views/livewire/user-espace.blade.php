@@ -1,4 +1,4 @@
-<div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-0 bg-white ">
+<div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-0 bg-white min-h-screen ">
     <!-- Nouvelle demande -->
     <div class="flex justify-center">
         <a href="/demande-form"

@@ -1,5 +1,5 @@
-<footer class="bg-white w-full">
-    <div class="box px-1">
+<footer class="bg-blue-100 w-full static bottom-0">
+    <div class="box  fixed inset-x-0 bottom-0">
         <div class="box-sm red"></div>
         <div class="box-sm orange"></div>
         <div class="box-sm yellow "></div>

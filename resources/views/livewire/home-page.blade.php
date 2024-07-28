@@ -1,4 +1,4 @@
-<div class="pt-10 pb-10 bg-indigo-50">
+<div class="pt-10 pb-10 bg-white min-h-screen">
     <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
@@ -20,7 +20,7 @@
         </div>
         <!--Right Col-->
         <div class="w-full md:w-3/5 py-3 text-center">
-            <img class="w-full md:w-4/5 z-50" src="{{ asset('images/hero.png') }}" />
+            <img class="w-full md:w-4/5 z-50 " width="600" src="{{ asset('images/hero.png') }}" />
             <p class="uppercase tracking-loose w-full"><span class="text-blue-600">Soumettre</span>, <span
                     class="text-red-600">Suivre</span>, <span class="text-blue-600">Receptionner</span> et <span
                     class="text-red-600">Verifier</span></p>
