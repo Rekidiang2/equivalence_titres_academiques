@@ -1,6 +1,6 @@
-<div class="w-full  py-1 mb-16 px-4 sm:px-6 lg:px-8 mx-auto bg-indigo-50">
+<div class="w-full  py-1 mb-16 px-4 sm:px-6 lg:px-8 mx-auto min-h-screen">
 
-    <ol class="flex items-center w-full text-xs text-gray-900 font-medium sm:text-base bg-white">
+    <ol class="flex items-center w-full text-xs text-gray-900 font-medium sm:text-base ">
         <li
             class="flex w-full relative text-indigo-600  after:content-['']  after:w-full after:h-0.5  after:bg-indigo-600 after:inline-block after:absolute lg:after:top-5 after:top-3 after:left-4">
             <div class="block whitespace-nowrap z-10">
@@ -55,17 +55,17 @@
 
 
 
-    <div class="container mx-auto mt-16">
+    <div class="container mx-auto mt-16 ">
         <div>
 
-            <div class="bg-white relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
-                <div class="flex justify-center">
+            <div class="bg-blue-50 relative shadow rounded-lg w-5/6 md:w-5/6  lg:w-4/6 xl:w-3/6 mx-auto">
+                <div class="flex justify-center bg-blue-50">
                     <img src="{{ url('storage', $dossier->photo) }}" alt=""
-                        class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110">
+                        class="rounded-full mx-auto absolute -top-14 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110">
                 </div>
 
 
-                <div class="mt-16">
+                <div class="mt-20">
                     <p class="font-bold text-center text-md text-blue-600 font-sans">Demande d'Equivalence concernant :
                     </p>
                     <h2 class="font-bold text-center text-3xl text-gray-900 font-sans">{{ $dossier->nom }}

@@ -1,8 +1,8 @@
-<div class="z-50 sticky top-0">
+<div class="">
     <header
         class="flex z-50 sticky top-0 flex-wrap md:justify-start md:flex-nowrap w-full bg-white-600 text-sm py-5 md:py-0 dark:bg-gray-800 shadow-md">
 
-        <nav class="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8" aria-label="Global">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 md:px-4 lg:px-8" aria-label="Global">
 
             <!-- <div class="relative md:flex md:items-center md:justify-between">-->
             <!-- Logo -->
@@ -38,6 +38,23 @@
                                 d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                         </svg>
                     </a>
+                    <!--
+                    <select
+                        class="w-20 h-6 px-1 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-600 hover:bg-white/10 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-1 focus:ring-gray-600">
+
+                        <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                        </svg>
+
+
+                        <option value="fr">Francais</option>
+                        <option value="en">English</option>
+
+                    </select>
+                    </select>
+                      -->
                 </div>
             </div>
 

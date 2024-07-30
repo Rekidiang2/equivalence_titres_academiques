@@ -1,7 +1,7 @@
 <div class="w-full max-w-[95rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto mt-0 bg-white min-h-screen ">
     <!-- Nouvelle demande -->
     <div class="flex justify-center">
-        <a href="/demande-form"
+        <a wire:navigate href="/demande-form"
             class=" hover:underline text-center bg-white text-blue-600 text-lg font-bold rounded-full my-3  px-4 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Nouvelle Demande
         </a>
